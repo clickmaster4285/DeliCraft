@@ -59,10 +59,10 @@ const Footer = () => {
           <div>
             <h4 className="font-heading text-lg font-semibold text-primary-foreground mb-4">Contact</h4>
             <div className="space-y-3 font-body text-sm">
-              <p>123 Artisan Lane</p>
-              <p>Brooklyn, NY 11201</p>
-              <p>hello@delicraft.com</p>
-              <p>+1 (555) 234-5678</p>
+              <p>Paris Shopping Mall, 4th floor, Main PWD Rd, PWD Housing Society Sector A, Islamabad. Pakistan</p>
+          
+              <p>marketing@clickmasters.pk</p>
+              <p>+92 333-1116842</p>
             </div>
           </div>
         </div>

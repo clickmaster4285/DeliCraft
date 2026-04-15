@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useGsapFadeIn } from "./useGsapScrollTrigger";
 import { Star, ChevronLeft, ChevronRight, Quote } from "lucide-react";
 
@@ -36,6 +36,16 @@ const TestimonialsSection = () => {
   const prev = () => setCurrent((p) => (p === 0 ? testimonials.length - 1 : p - 1));
   const next = () => setCurrent((p) => (p === testimonials.length - 1 ? 0 : p + 1));
 
+  // Auto-slide effect
+  useEffect(() => {
+    const interval = setInterval(() => {
+      next();
+    }, 5000); // Change slide every 5 seconds
+
+    // Cleanup interval on component unmount
+    return () => clearInterval(interval);
+  }, []); // Empty dependency array means this runs once on mount
+
   return (
     <section className="section-padding bg-primary text-primary-foreground" ref={ref}>
       <div className="max-w-4xl mx-auto text-center">
@@ -67,7 +77,10 @@ const TestimonialsSection = () => {
           </div>
 
           <div className="flex items-center justify-center gap-6 mt-8">
-            <button onClick={prev} className="w-12 h-12 rounded-full border border-primary-foreground/30 flex items-center justify-center hover:bg-primary-foreground/10 transition-colors">
+            <button 
+              onClick={prev} 
+              className="w-12 h-12 rounded-full border border-primary-foreground/30 flex items-center justify-center hover:bg-primary-foreground/10 transition-colors"
+            >
               <ChevronLeft className="w-5 h-5" />
             </button>
             <div className="flex gap-2">
@@ -79,7 +92,10 @@ const TestimonialsSection = () => {
                 />
               ))}
             </div>
-            <button onClick={next} className="w-12 h-12 rounded-full border border-primary-foreground/30 flex items-center justify-center hover:bg-primary-foreground/10 transition-colors">
+            <button 
+              onClick={next} 
+              className="w-12 h-12 rounded-full border border-primary-foreground/30 flex items-center justify-center hover:bg-primary-foreground/10 transition-colors"
+            >
               <ChevronRight className="w-5 h-5" />
             </button>
           </div>
